@@ -1,0 +1,14 @@
+@import './fonts.scss';
+
+@import './reset.scss';
+
+@import './variables.scss';
+
+body {
+  background-color: $Background;
+}
+
+.app {
+  font: $font-size-base 'Inter Regular', sans-serif;
+  width: 100%;
+}
