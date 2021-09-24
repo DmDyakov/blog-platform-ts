@@ -1,3 +1,3 @@
 export default interface Errors {
-  body: Array<null | string>
+  body: Array<null | string>;
 }
