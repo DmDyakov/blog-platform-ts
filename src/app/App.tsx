@@ -1,8 +1,11 @@
-import React from "react";
+import React from 'react';
+import AppHeader from 'src/components/app-header';
 
-const App: React.FC = () => {
+const App = () => {
   return (
-   <div>Work!</div>
+    <div className="app">
+      <AppHeader />
+    </div>
   );
 };
 

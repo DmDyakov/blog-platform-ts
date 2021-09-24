@@ -1,0 +1,31 @@
+@import '../../styles/variables.scss';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 16px 22px;
+  background-color: $background-color-base;
+  font-size: $font-size-H6;
+  color: $heading-color;
+
+  & > *:not(:first-child) {
+    margin-left: 1em;
+  }
+
+  a a:active,
+  a:visited {
+    color: $heading-color;
+  }
+
+  a:hover {
+    opacity: 1;
+    color: $text-color-secondary;
+    transition: color 0.5s;
+  }
+
+  .logo {
+    flex-grow: 1;
+  }
+}

@@ -1,0 +1,32 @@
+@import '../../styles/variables.scss';
+
+.profileLink {
+  display: flex;
+  align-items: flex-start;
+  // margin-left: 1em;
+  // margin-bottom: 1em;
+  // width: 200px;
+
+  .profileData {
+    margin-right: 1em;
+    align-self: center;
+  }
+
+  .userName {
+    font-size: $font-size-H6;
+  }
+
+  .creationDate {
+    white-space: nowrap;
+    font-size: $font-size-sm;
+    color: $text-color-secondary;
+  }
+  .avatarContainer {
+    .avatar {
+      border-radius: 50%;
+      width: 46px;
+      height: 46px;
+      object-fit: contain;
+    }
+  }
+}
