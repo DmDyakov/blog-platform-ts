@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FormType } from 'src/typings/authForm';
 import { Lang } from 'src/typings/language';
 import Button from '../button';
 import ProfileLink from '../profile-link';
@@ -18,21 +20,27 @@ const AppHeader = () => {
   const profileLink = isLogin && username && <ProfileLink username={username} image={image} />;
 
   const signInBtn = !isLogin && (
-    <Button type="button" design={signIn.design}>
-      {signIn[lang]}
-    </Button>
+    <Link to={`/auth/${FormType.SIGNIN}`}>
+      <Button type="button" design={signIn.design}>
+        {signIn[lang]}
+      </Button>
+    </Link>
   );
 
   const signUpBtn = !isLogin && (
-    <Button type="button" design={signUp.design}>
-      {signUp[lang]}
-    </Button>
+    <Link to={`/auth/${FormType.SIGNUP}`}>
+      <Button type="button" design={signUp.design}>
+        {signUp[lang]}
+      </Button>
+    </Link>
   );
 
   const logOutBtn = isLogin && (
-    <Button type="button" design={logOut.design}>
-      {logOut[lang]}
-    </Button>
+    <Link to="/">
+      <Button type="button" design={logOut.design}>
+        {logOut[lang]}
+      </Button>
+    </Link>
   );
 
   const createArticleBtn = isLogin && (
