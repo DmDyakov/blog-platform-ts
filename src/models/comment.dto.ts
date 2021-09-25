@@ -1,4 +1,4 @@
-import Profile from './profile.dto';
+import { Profile } from './user.dto';
 
 export default interface Comment {
   id: number;

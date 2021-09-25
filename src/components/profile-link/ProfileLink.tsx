@@ -7,7 +7,7 @@ import classes from './profile-link.module.scss';
 interface ProfileLinkProps {
   username: string;
   createdAt?: string;
-  image?: string;
+  image: string | null;
 }
 
 const ProfileLink = ({ username, createdAt, image }: ProfileLinkProps) => {

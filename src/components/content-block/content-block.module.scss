@@ -1,0 +1,11 @@
+@import '../../styles/variables.scss';
+
+.container {
+  background-color: $background-color-base;
+  padding: 16px;
+  border-radius: 5px;
+  margin-bottom: 1.5em;
+  width: 100%;
+  max-width: 941px;
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.15);
+}
