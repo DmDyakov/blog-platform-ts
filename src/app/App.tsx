@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import AppHeader from 'src/components/app-header';
 import ArticleListPage from 'src/pages/article-list-page';
 
@@ -6,7 +7,19 @@ const App = () => {
   return (
     <div className="app">
       <AppHeader />
-      <ArticleListPage />
+      <Router>
+        <Switch>
+          <Route
+            path="/articles/page/:page"
+            render={({
+              match: {
+                params: { page },
+              },
+            }) => <ArticleListPage page={page} />}
+          />
+          <Redirect to="/articles/page/1" />
+        </Switch>
+      </Router>
     </div>
   );
 };
