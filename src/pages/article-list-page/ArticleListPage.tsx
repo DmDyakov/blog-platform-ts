@@ -4,7 +4,7 @@ import { Spin, Pagination } from 'antd';
 import classes from './article-list-page.module.scss';
 
 import { realWorldService } from 'src/services/real-world-service';
-import ArticlePreview from 'src/components/article-preview';
+import Article from 'src/components/article';
 import { ArticleData } from 'src/models/article.dto';
 
 import 'antd/dist/antd.css';
@@ -15,10 +15,6 @@ interface ArticleListPageProps {
   page: string;
 }
 
-interface ArticleListParams {
-  page: string;
-}
-
 const ArticleListPage = ({ page }: ArticleListPageProps) => {
   const [articleList, setArticleList] = useState<ArticleData[]>([]);
   const [articlesCount, setArticlesCount] = useState<number>(0);
@@ -26,7 +22,7 @@ const ArticleListPage = ({ page }: ArticleListPageProps) => {
   const [isLoading, setLoading] = useState<boolean>(false);
 
   const history = useHistory();
-  const params = useParams<ArticleListParams>();
+  const params = useParams<{ page: string }>();
 
   const limit = 5;
   const offset = limit * (+params.page - 1);
@@ -51,8 +47,8 @@ const ArticleListPage = ({ page }: ArticleListPageProps) => {
   const previewArticleList =
     articleList &&
     !error &&
-    articleList.map(({ slug, ...article }: ArticleData) => (
-      <ArticlePreview key={slug} slug={slug} {...article} isActiveLink />
+    articleList.map(({ slug, ...restArticle }: ArticleData) => (
+      <Article isPreview key={slug} slug={slug} {...restArticle} isActiveLink />
     ));
 
   const pagination = !error && (

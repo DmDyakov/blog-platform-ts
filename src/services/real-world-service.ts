@@ -16,7 +16,8 @@ class RealWorldService {
   getArticleList = (limit: number, offset: number, token?: string) =>
     axios.get(`${this.API_BASE}/articles/?limit=${limit}&offset=${offset}`, this.createConfig(token));
 
-  getSelectedArticle = (slug: string, token: string) => axios.get(`${this.API_BASE}/${slug}`, this.createConfig(token));
+  getSelectedArticle = (slug: string, token: string) =>
+    axios.get(`${this.API_BASE}/articles/${slug}`, this.createConfig(token));
 
   createArticle = (data: Article<DataType.CREATING>, token: string) =>
     axios.post(`${this.API_BASE}/articles`, data, this.createConfig(token));

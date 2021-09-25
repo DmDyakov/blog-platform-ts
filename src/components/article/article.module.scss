@@ -89,16 +89,14 @@
   }
 }
 
-.content {
+.previewContent {
   display: flex;
   justify-content: space-between;
 }
-
-.text {
-  font: 400 12px/28px Inter;
-  margin: -0.5em 3em 0 0;
+.body {
+  margin-top: 48px;
+  min-height: 400px;
 }
-
 .errorMessage {
   position: absolute;
 }
