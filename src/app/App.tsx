@@ -9,14 +9,7 @@ const App = () => {
       <AppHeader />
       <Router>
         <Switch>
-          <Route
-            path="/articles/page/:page"
-            render={({
-              match: {
-                params: { page },
-              },
-            }) => <ArticleListPage page={page} />}
-          />
+          <Route path="/articles/page/:page" component={ArticleListPage} />
           <Redirect to="/articles/page/1" />
         </Switch>
       </Router>

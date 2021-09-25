@@ -9,9 +9,13 @@ import { ArticleData } from 'src/models/article.dto';
 
 import 'antd/dist/antd.css';
 import ErrorMessage from 'src/components/error-message';
-import { useHistory } from 'react-router';
+import { useHistory, useParams } from 'react-router';
 
 interface ArticleListPageProps {
+  page: string;
+}
+
+interface ArticleListParams {
   page: string;
 }
 
@@ -22,9 +26,10 @@ const ArticleListPage = ({ page }: ArticleListPageProps) => {
   const [isLoading, setLoading] = useState<boolean>(false);
 
   const history = useHistory();
+  const params = useParams<ArticleListParams>();
 
   const limit = 5;
-  const offset = limit * (+page - 1);
+  const offset = limit * (+params.page - 1);
 
   useEffect(() => {
     setLoading(true);
@@ -37,7 +42,7 @@ const ArticleListPage = ({ page }: ArticleListPageProps) => {
       .catch(() => setError('Ошибка'))
       .finally(() => setLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [page]);
+  }, [params.page]);
 
   const changePage = (pageNumber: number) => {
     history.push(`/articles/page/${pageNumber}`);
@@ -53,7 +58,7 @@ const ArticleListPage = ({ page }: ArticleListPageProps) => {
   const pagination = !error && (
     <Pagination
       style={{ marginBottom: '1em' }}
-      current={+page || 1}
+      current={+params.page || 1}
       showSizeChanger={false}
       disabled={articlesCount <= limit}
       hideOnSinglePage={articlesCount === 0}
