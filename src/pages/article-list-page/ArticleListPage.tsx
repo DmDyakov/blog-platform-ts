@@ -22,10 +22,10 @@ const ArticleListPage = ({ page }: ArticleListPageProps) => {
   const [isLoading, setLoading] = useState<boolean>(false);
 
   const history = useHistory();
-  const params = useParams<{ page: string }>();
+  const params = useParams<{ pageNumber: string }>();
 
   const limit = 5;
-  const offset = limit * (+params.page - 1);
+  const offset = limit * (+params.pageNumber - 1);
 
   useEffect(() => {
     setLoading(true);
@@ -38,7 +38,7 @@ const ArticleListPage = ({ page }: ArticleListPageProps) => {
       .catch(() => setError('Ошибка'))
       .finally(() => setLoading(false));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [params.page]);
+  }, [params.pageNumber]);
 
   const changePage = (pageNumber: number) => {
     history.push(`/articles/page/${pageNumber}`);
@@ -54,7 +54,7 @@ const ArticleListPage = ({ page }: ArticleListPageProps) => {
   const pagination = !error && (
     <Pagination
       style={{ marginBottom: '1em' }}
-      current={+params.page || 1}
+      current={+params.pageNumber || 1}
       showSizeChanger={false}
       disabled={articlesCount <= limit}
       hideOnSinglePage={articlesCount === 0}

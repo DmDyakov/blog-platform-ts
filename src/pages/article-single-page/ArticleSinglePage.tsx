@@ -25,7 +25,6 @@ const ArticleSinglePage = () => {
       })
       .catch(() => setError('Ошибка'))
       .finally(() => setLoading(false));
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
 
   return (
