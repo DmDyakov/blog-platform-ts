@@ -23,7 +23,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ formType, title, notice, btnText, c
   };
 
   const inputs = inputIds[formType].map((id) => (
-    <div className={classes.inputContainer} key={id}>
+    <div className={classes.inputContainer} key={`${FormType.SIGNUP}-${id}`}>
       <label htmlFor={id} className={`${classes.label}`}>
         {labels[id][lang]}
       </label>
