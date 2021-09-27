@@ -14,11 +14,11 @@ export const labels = {
     [Lang.EN]: 'Password',
     [Lang.RU]: 'Пароль',
   },
-  [Input.REPEATEPASSWORD]: {
+  [Input.REPEATE_PASSWORD]: {
     [Lang.EN]: 'Repeat password',
     [Lang.RU]: 'Повторите пароль',
   },
-  [Input.NEWPASSWORD]: {
+  [Input.NEW_PASSWORD]: {
     [Lang.EN]: 'New password',
     [Lang.RU]: 'Новый пароль',
   },

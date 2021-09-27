@@ -20,7 +20,7 @@ const AppHeader = () => {
   const profileLink = isLogin && username && <ProfileLink username={username} image={image} />;
 
   const signInBtn = !isLogin && (
-    <Link to={`/auth/${FormType.SIGNIN}`}>
+    <Link to={`/auth/${FormType.SIGN_IN}`}>
       <Button type="button" design={signIn.design}>
         {signIn[lang]}
       </Button>
@@ -28,7 +28,7 @@ const AppHeader = () => {
   );
 
   const signUpBtn = !isLogin && (
-    <Link to={`/auth/${FormType.SIGNUP}`}>
+    <Link to={`/auth/${FormType.SIGN_UP}`}>
       <Button type="button" design={signUp.design}>
         {signUp[lang]}
       </Button>
@@ -63,4 +63,4 @@ const AppHeader = () => {
   );
 };
 
-export default AppHeader;
+export default React.memo(AppHeader);

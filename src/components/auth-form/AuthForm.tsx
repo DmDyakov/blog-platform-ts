@@ -17,13 +17,13 @@ interface AuthFormProps {
 
 const AuthForm: React.FC<AuthFormProps> = ({ formType, title, notice, btnText, children: link }) => {
   const inputIds = {
-    [FormType.SIGNUP]: [Input.USERNAME, Input.EMAIL, Input.PASSWORD, Input.REPEATEPASSWORD],
-    [FormType.SIGNIN]: [Input.EMAIL, Input.PASSWORD],
-    [FormType.EDIT]: [Input.USERNAME, Input.EMAIL, Input.NEWPASSWORD, Input.AVATAR],
+    [FormType.SIGN_UP]: [Input.USERNAME, Input.EMAIL, Input.PASSWORD, Input.REPEATE_PASSWORD],
+    [FormType.SIGN_IN]: [Input.EMAIL, Input.PASSWORD],
+    [FormType.EDIT_PROFILE]: [Input.USERNAME, Input.EMAIL, Input.NEW_PASSWORD, Input.AVATAR],
   };
 
   const inputs = inputIds[formType].map((id) => (
-    <div className={classes.inputContainer} key={`${FormType.SIGNUP}-${id}`}>
+    <div className={classes.inputContainer} key={`${FormType.SIGN_UP}-${id}`}>
       <label htmlFor={id} className={`${classes.label}`}>
         {labels[id][lang]}
       </label>
@@ -37,7 +37,7 @@ const AuthForm: React.FC<AuthFormProps> = ({ formType, title, notice, btnText, c
     </div>
   ));
 
-  const iAgreeTo = formType === FormType.SIGNUP && (
+  const iAgreeTo = formType === FormType.SIGN_UP && (
     <div>
       <fieldset className={classes.fieldset}>
         <input className={`${classes.checkbox}`} id="iAgreeTo" type="checkbox" />

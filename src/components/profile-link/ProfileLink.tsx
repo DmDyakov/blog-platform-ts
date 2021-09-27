@@ -31,4 +31,4 @@ const ProfileLink = ({ username, createdAt, image }: ProfileLinkProps) => {
   );
 };
 
-export default ProfileLink;
+export default React.memo(ProfileLink);

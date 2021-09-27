@@ -4,6 +4,7 @@ import { BtnDesign } from 'src/typings/button';
 import classes from './button.module.scss';
 
 interface ButtonProps {
+  children: string;
   design: BtnDesign;
   btnAction?: () => void;
   type: 'button' | 'submit';
@@ -20,4 +21,4 @@ const Button: React.FC<ButtonProps> = ({ children: btnText, design, btnAction, t
   </button>
 );
 
-export default Button;
+export default React.memo(Button);
