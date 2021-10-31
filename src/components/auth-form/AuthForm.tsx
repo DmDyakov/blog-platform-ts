@@ -1,6 +1,8 @@
 import React from 'react';
 import { FormType, Input } from 'src/typings/authForm';
+import { BtnDesign } from 'src/typings/button';
 import { Lang } from 'src/typings/language';
+import Button from '../button';
 import ContentBlock from '../content-block';
 
 import classes from './auth-form.module.scss';
@@ -50,9 +52,9 @@ const AuthForm: React.FC<AuthFormProps> = ({ formType, title, notice, btnText, c
   );
 
   const submitButton = (
-    <button className={classes.btn} type="submit">
+    <Button type="submit" design={BtnDesign.SUBMIT}>
       {btnText}
-    </button>
+    </Button>
   );
 
   const handleSubmit = () => console.log('submit');

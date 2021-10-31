@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import AppHeader from 'src/components/app-header';
+import Home from 'src/components/multi-step-form/MultiStepForm';
 import ArticleEditingPage from 'src/pages/article-editing-page';
 import ArticleListPage from 'src/pages/article-list-page';
 import ArticleSinglePage from 'src/pages/article-single-page';
@@ -33,6 +34,7 @@ const App = () => {
           </Switch>
         </div>
       </Router>
+      <Home />
     </div>
   );
 };

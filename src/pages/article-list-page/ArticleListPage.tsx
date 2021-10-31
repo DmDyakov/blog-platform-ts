@@ -10,6 +10,8 @@ import { ArticleData } from 'src/models/article.dto';
 import 'antd/dist/antd.css';
 import ErrorMessage from 'src/components/error-message';
 import { useHistory, useParams } from 'react-router';
+import ArticleList from 'src/components/article-list';
+import FriendList from 'src/components/form-example/FormExample';
 
 interface ArticleListPageProps {
   page: string;
@@ -44,13 +46,6 @@ const ArticleListPage = ({ page }: ArticleListPageProps) => {
     history.push(`/articles/page/${pageNumber}`);
   };
 
-  const previewArticleList =
-    articleList &&
-    !error &&
-    articleList.map(({ slug, ...restArticle }: ArticleData) => (
-      <Article isPreview key={slug} slug={slug} {...restArticle} isActiveLink />
-    ));
-
   const pagination = !error && (
     <Pagination
       style={{ marginBottom: '1em' }}
@@ -73,9 +68,27 @@ const ArticleListPage = ({ page }: ArticleListPageProps) => {
         spinning={isLoading && !error}
         style={!articleList.length ? { margin: '100px 0' } : undefined}
       >
-        {previewArticleList}
+        {articleList && !error && <ArticleList list={articleList} />}
       </Spin>
       {pagination}
+
+      <svg className="{className}">
+        <rect onMouseOver={console.log} x="0" y="0" width="30" height="30" fill="purple" />
+        <rect onClick={(e) => console.log(e.target)} x="20" y="5" width="30" height="30" fill="blue" />
+        <rect className="fff" x="40" y="10" width="30" height="30" fill="green" />
+        <rect x="60" y="15" width="30" height="30" fill="yellow" />
+        <rect x="80" y="20" width="30" height="30" fill="red" />
+      </svg>
+      <svg>
+        <circle cx="25" cy="25" r="20" fill="green" stroke-width="5" stroke="rgb(150,110,200)" />
+        <circle cx="250" cy="32" r="30" fill="yellow" stroke-width="3" stroke="rgb(50,90,150)" />
+        <line x1="50" y1="30" x2="250" y2="0" stroke-width="3" stroke="red" />
+        <rect width="30" height="20" fill="orange" stroke-width="1" stroke="rgb(0,0,0)" />
+        <polygon points="100,140 250,118 170,60 " fill="blue" stroke-width="1" stroke="rgb(0,0,0)" />
+        <polygon points="40,100 100,100 100,150 40,150" fill="red" stroke-width="2" stroke="rgb(100,250,110)" />
+      </svg>
+
+      <FriendList />
     </div>
   );
 };

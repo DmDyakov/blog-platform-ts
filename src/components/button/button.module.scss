@@ -59,10 +59,7 @@
     border: 1px solid $primary-color;
   }
 
-  .create,
-  .login,
-  .save,
-  .send {
+  &.submit {
     width: 100%;
     height: 40px;
     background-color: $primary-color;

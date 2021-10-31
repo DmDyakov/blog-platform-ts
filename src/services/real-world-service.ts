@@ -2,7 +2,7 @@ import axios from 'axios';
 import { Article, DataType } from 'src/models/article.dto';
 
 class RealWorldService {
-  API_BASE = 'https://conduit.productionready.io/api';
+  API_BASE = 'https://conduit-api-realworld.herokuapp.com/api';
 
   createConfig = (token?: string) => {
     return {

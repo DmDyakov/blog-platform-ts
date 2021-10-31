@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ArticleFormType } from 'src/typings/articleForm';
 import { FormType } from 'src/typings/authForm';
 import { Lang } from 'src/typings/language';
 import Button from '../button';
@@ -10,7 +11,7 @@ import { createArticle, logo, logOut, signIn, signUp } from './constants';
 //============from store
 
 const lang = Lang.EN;
-const isLogin = false;
+const isLogin = true;
 const username = 'username';
 const image = '';
 
@@ -44,15 +45,19 @@ const AppHeader = () => {
   );
 
   const createArticleBtn = isLogin && (
-    <Button type="button" design={createArticle.design}>
-      {createArticle[lang]}
-    </Button>
+    <Link to={`/article/editing/${ArticleFormType.CREATE}`}>
+      <Button type="button" design={createArticle.design}>
+        {createArticle[lang]}
+      </Button>
+    </Link>
   );
 
   return (
     <div className={classes.wrapper}>
       <div className={classes.logo}>
-        <span>{logo}</span>
+        <Link to={`/`}>
+          <span>{logo}</span>
+        </Link>
       </div>
       {signInBtn}
       {createArticleBtn}

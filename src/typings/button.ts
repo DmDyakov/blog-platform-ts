@@ -9,8 +9,5 @@ export enum BtnDesign {
   edit = 'edit',
   addTag = 'addTag',
   goBackToHomepage = 'goBackToHomepage',
-  create = 'create',
-  login = 'login',
-  save = 'save',
-  send = 'send',
+  SUBMIT = 'submit',
 }
