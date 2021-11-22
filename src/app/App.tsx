@@ -35,6 +35,14 @@ const App = () => {
         </div>
       </Router>
       <Home />
+      <select>
+        <option value="grapefruit">Грейпфрут</option>
+        <option value="lime">Лайм</option>
+        <option selected value="coconut">
+          Кокос
+        </option>
+        <option value="mango">Манго</option>
+      </select>
     </div>
   );
 };

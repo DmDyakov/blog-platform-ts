@@ -27,7 +27,7 @@ export default function Home() {
             label="Personal Data"
             validationSchema={object().shape({
               firstName: number().when('money', {
-                is: 6,
+                is: 1000000,
                 then: number().min(1000),
                 otherwise: number().max(100),
               }),
@@ -61,7 +61,7 @@ export default function Home() {
             label="Bank Accounts"
             validationSchema={object({
               money: mixed().when(['millionaire', 'firstName'], {
-                is: (millionaire: any, firstName: number, schema: any) => millionaire || firstName !== 100,
+                is: (millionaire: any, firstName: string, schema: any) => millionaire || firstName !== 'Dmitry',
                 then: number()
                   .required()
                   .min(1_000_000, 'Because you said you are a millionaire you need to have 1 million'),
