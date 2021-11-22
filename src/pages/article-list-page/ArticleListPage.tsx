@@ -75,7 +75,15 @@ const ArticleListPage = ({ page }: ArticleListPageProps) => {
       <svg className="{className}">
         <rect onMouseOver={console.log} x="0" y="0" width="30" height="30" fill="purple" />
         <rect onClick={(e) => console.log(e.target)} x="20" y="5" width="30" height="30" fill="blue" />
-        <rect className="fff" x="40" y="10" width="30" height="30" fill="green" />
+        <rect
+          className="
+        fff"
+          x="40"
+          y="10"
+          width="30"
+          height="30"
+          fill="green"
+        />
         <rect x="60" y="15" width="30" height="30" fill="yellow" />
         <rect x="80" y="20" width="30" height="30" fill="red" />
       </svg>
